@@ -1,5 +1,7 @@
 # OpenVPN Browser
 
+![Docker Image CI](https://github.com/paul-ridgway/ovpn-browser/workflows/Docker%20Image%20CI/badge.svg?branch=master)
+
 ## Running
 
 A helper script `run.sh` is the easiest way to stat it, eg: `./run.sh ~/path/to/my-config.ovpn`
