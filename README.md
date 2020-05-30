@@ -21,3 +21,13 @@ Note: The vpn config is passed as a volume
 ## Behaviour
 
 It will quit if either the VPN process exits or the browser is closed.
+
+## No such process
+
+This warning can be safely ignored:
+
+```
+/start.sh: line 24: kill: (42) - No such process
+```
+
+The script tries to kill both processes, its likely one has already died.

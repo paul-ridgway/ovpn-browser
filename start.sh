@@ -14,13 +14,13 @@ echo "Waiting for IP change..."
 NEWIP=$(myip)
 while [ "$IP" = "$NEWIP" ]; do
 	sleep 1
-	echo "  Wait, still $NEWIP..."
+	echo "> Wait, still $NEWIP..."
 	NEWIP=$(myip)
 done
 echo "IP Changed, now $NEWIP"
 
 firefox $@ & p2=$!
 wait -n
-[ "$?" -gt 1 ] || echo "VPN or Firefox exited, quitting!"; kill "$p1" "$p2")
+[ "$?" -gt 1 ] || (echo "VPN or Firefox exited, quitting!"; kill "$p1" "$p2")
 wait
 
