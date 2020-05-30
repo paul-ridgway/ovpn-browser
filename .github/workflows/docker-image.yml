@@ -10,8 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - id: docker-build
+    - id: checkout
       uses: actions/checkout@v2
+    - id: docker-build
       name: Build the Docker image
       run: docker build . --file Dockerfile --tag paulridgway/ovpn-browser:$(date +%s)
   
