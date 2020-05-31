@@ -19,7 +19,7 @@ while [ "$IP" = "$NEWIP" ]; do
 done
 echo "IP Changed, now $NEWIP"
 
-vivaldi-stable --no-sandbox $@ & p2=$!
+vivaldi-stable  --no-sandbox --disable-gpu $@ & p2=$!
 wait -n
 [ "$?" -gt 1 ] || (echo "VPN or Firefox exited, quitting!"; sudo kill "$p1" "$p2")
 wait
