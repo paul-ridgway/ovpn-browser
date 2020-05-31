@@ -8,7 +8,7 @@ IP=$(myip)
 echo "Normal IP: $IP"
 
 echo "Starting OpenVPN..."
-openvpn config.ovpn & p1=$!
+sudo openvpn config.ovpn & p1=$!
 
 echo "Waiting for IP change..."
 NEWIP=$(myip)
@@ -19,8 +19,8 @@ while [ "$IP" = "$NEWIP" ]; do
 done
 echo "IP Changed, now $NEWIP"
 
-firefox $@ & p2=$!
+vivaldi-stable --no-sandbox $@ & p2=$!
 wait -n
-[ "$?" -gt 1 ] || (echo "VPN or Firefox exited, quitting!"; kill "$p1" "$p2")
+[ "$?" -gt 1 ] || (echo "VPN or Firefox exited, quitting!"; sudo kill "$p1" "$p2")
 wait
 
