@@ -19,8 +19,8 @@ while [ "$IP" = "$NEWIP" ]; do
 done
 echo "IP Changed, now $NEWIP"
 
-firefox $@ & p2=$!
+google-chrome --no-sandbox --disable-gpu $@ & p2=$!
 wait -n
-[ "$?" -gt 1 ] || (echo "VPN or Firefox exited, quitting!"; kill "$p1" "$p2")
+[ "$?" -gt 1 ] || (echo "VPN or Chrome exited, quitting!"; kill "$p1" "$p2")
 wait
 
